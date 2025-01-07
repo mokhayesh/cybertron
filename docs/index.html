@@ -104,18 +104,24 @@
         /* Biography Section */
         .bio-container {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
             margin-top: 2rem;
+            padding-left: 2rem; /* Adjusted to create more space on the left */
         }
 
         .bio-container img {
-            width: 150px; /* Set the width */
-            height: 150px; /* Set the height */
+            width: 180px; /* Increased the size of the image */
+            height: 180px;
             border-radius: 50%;
-            object-fit: cover; /* Ensures the image keeps its aspect ratio */
-            margin-bottom: 1.5rem;
+            object-fit: cover;
+            border: 5px solid #00509e; /* Thicker border for image */
+            margin-right: 2rem; /* Space between the image and text */
+        }
+
+        .bio-container p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
         }
 
         /* Contact Form */
@@ -167,8 +173,8 @@
             }
 
             .bio-container img {
-                width: 120px;
-                height: 120px;
+                width: 150px;
+                height: 150px;
             }
 
             footer {
@@ -198,16 +204,18 @@
         <h2>About Me</h2>
         <div class="bio-container">
             <img src="images/your-photo.jpg" alt="Salah Aldin Mokhayesh">
-            <p>
-                I am a results-driven expert in <strong>Data Governance</strong>, <strong>Data Management</strong>, 
-                and <strong>Generative AI</strong> with over 18 years of experience crafting and deploying cutting-edge data solutions. 
-                As the founder of the <strong>Generative AI Innovators Community (2024)</strong>, I lead efforts to build scalable, impactful solutions in the AI and data governance space. 
-            </p>
-            <p>
-                My work involves developing sophisticated frameworks for metadata management, data classification, AI-driven automation, 
-                and performance optimization across high-performance computing systems. I have a proven track record of mentoring teams, 
-                authoring thought-leadership articles, and contributing to groundbreaking advancements in the AI and data governance industries.
-            </p>
+            <div>
+                <p>
+                    I am a results-driven expert in <strong>Data Governance</strong>, <strong>Data Management</strong>, 
+                    and <strong>Generative AI</strong> with over 18 years of experience crafting and deploying cutting-edge data solutions. 
+                    As the founder of the <strong>Generative AI Innovators Community (2024)</strong>, I lead efforts to build scalable, impactful solutions in the AI and data governance space. 
+                </p>
+                <p>
+                    My work involves developing sophisticated frameworks for metadata management, data classification, AI-driven automation, 
+                    and performance optimization across high-performance computing systems. I have a proven track record of mentoring teams, 
+                    authoring thought-leadership articles, and contributing to groundbreaking advancements in the AI and data governance industries.
+                </p>
+            </div>
         </div>
     </section>
 
