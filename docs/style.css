@@ -1,4 +1,23 @@
 /* General Styles */
+/* Define color scheme */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #28a745; /* Green */
+    --background-color: #f4f4f4; /* Light gray background */
+    --text-color: #333; /* Dark text for readability */
+}
+
+/* Apply color scheme */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
