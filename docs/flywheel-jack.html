@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Flywheel-jack: A Generative AI and Python Hybrid Solution">
     <title>Flywheel-jack - Generative AI & Python Hybrid Solution</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap5AKz6f8mBb6mjHK0Xg1x3vphshB4qovVpJ7Iuhy1H0tjJAXc+dJ4zYzQVuQjWk9qdK9FvYqhXk6tS2S1rIw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
+        /* Reset and Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -18,343 +19,468 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fb;
+            background-color: #121212;
+            color: #ffffff;
             line-height: 1.6;
-            color: #333;
         }
 
+        a {
+            color: #1DB954;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #1ed760;
+        }
+
+        /* Header Styles */
         header {
-            background-color: #002244;
-            color: #ffffff;
-            padding: 2rem 1rem;
-            text-align: center;
             position: relative;
+            height: 100vh;
+            background: url('images/ai-generated-hero.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 1rem;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 34, 68, 0.7);
+            z-index: 1;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
         }
 
         header p {
-            font-size: 1.25rem;
-            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.5s;
         }
 
-        header nav {
-            margin-top: 1.5rem;
+        header .cta-button {
+            padding: 0.75rem 2rem;
+            font-size: 1.2rem;
+            background-color: #1DB954;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        header nav a {
+        header .cta-button:hover {
+            background-color: #1ed760;
+        }
+
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 34, 68, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        nav a {
             margin: 0 15px;
             font-size: 1rem;
             color: #ffffff;
             transition: color 0.3s ease;
         }
 
-        header nav a:hover {
-            color: #ffcc00;
+        nav a:hover {
+            color: #1DB954;
         }
 
-        /* Section Styles */
+        /* Sections */
         section {
-            padding: 3rem 1.5rem;
-            margin: 0 auto 2rem auto;
-            max-width: 960px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        section h2 {
-            color: #ffffff; /* Changed to white */
-            background-color: #002244; /* Added background color for better contrast */
-            padding: 1rem;
-            border-radius: 5px;
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        /* Flywheel Concept Enhanced Section */
-        .flywheel-container {
+        /* About Section */
+        .about {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 2rem;
+            text-align: center;
         }
 
-        .flywheel-container img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 8px;
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 5px solid #1DB954;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .flywheel-description {
-            background-color: #e6f0ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            width: 100%;
+        .about img:hover {
+            transform: scale(1.05);
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: #1DB954;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
             max-width: 800px;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
             margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
         }
 
-        .flywheel-description p {
-            font-size: 1.1rem;
-            color: #333;
+        .features h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: #1DB954;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
-        /* Overview Section */
-        .overview {
-            background-color: #f9f9f9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+        .features .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
         }
 
-        .overview h2 {
-            color: #ffffff;
-            background-color: #003366;
-            padding: 1rem;
-            border-radius: 5px;
+        .features .card {
+            background-color: #2c2c2c;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .features .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(29, 185, 84, 0.2);
+        }
+
+        .features .card i {
             font-size: 2rem;
-            font-weight: 600;
+            color: #1DB954;
             margin-bottom: 1rem;
         }
 
-        .overview p {
-            font-size: 1.1rem;
-            color: #555;
+        .features .card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        /* Key Features */
-        .features ul {
-            list-style-type: disc;
-            margin-left: 2rem;
-        }
-
-        .features ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        /* Use Case Section */
-        .use-case ul {
-            list-style-type: disc;
-            margin-left: 2rem;
-        }
-
-        .use-case ul li {
-            margin-bottom: 0.8rem;
+        .features .card p {
+            font-size: 1rem;
+            color: #ccc;
         }
 
         /* How It Works Section */
-        .how-it-works ol {
-            list-style-type: decimal;
-            margin-left: 2rem;
+        .how-it-works {
+            background-color: #ffffff;
+            color: #333333;
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            text-align: center;
         }
 
-        .how-it-works ol li {
-            margin-bottom: 0.8rem;
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: #002244;
+        }
+
+        .how-it-works h2::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: #1DB954;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .how-it-works .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .how-it-works .step {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .how-it-works .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(29, 185, 84, 0.2);
+        }
+
+        .how-it-works .step i {
+            font-size: 2rem;
+            color: #1DB954;
+            margin-bottom: 1rem;
+        }
+
+        .how-it-works .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .how-it-works .step p {
+            font-size: 1rem;
+            color: #555555;
         }
 
         /* Get Started Section */
-        .get-started a {
-            color: #007bff;
-            font-weight: 600;
+        .get-started {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
         }
 
-        .get-started a:hover {
-            color: #00509e;
+        .get-started h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Footer */
+        .get-started p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .get-started .cta-button {
+            padding: 0.75rem 2rem;
+            font-size: 1.2rem;
+            background-color: #ffffff;
+            color: #1DB954;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .get-started .cta-button:hover {
+            background-color: #1DB954;
+            color: #ffffff;
+        }
+
+        /* Footer Styles */
         footer {
             background-color: #002244;
             color: #ffffff;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 2rem 1rem;
+        }
+
+        footer p {
+            font-size: 1rem;
         }
 
         footer a {
-            color: #ffcc00;
+            color: #1DB954;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #ffffff;
+            color: #1ed760;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .features .feature-cards, .how-it-works .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.5rem;
             }
 
-            section {
-                padding: 2rem 1rem;
+            header p {
+                font-size: 1.2rem;
             }
 
-            section h2 {
-                font-size: 2rem;
-            }
-
-            .flywheel-container img {
-                max-width: 100%;
-            }
-
-            .flywheel-description, .overview {
-                padding: 1rem;
-            }
-
-            footer {
-                font-size: 0.9rem;
+            .features .card, .how-it-works .step {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#get-started">Get Started</a>
+    </nav>
+
+    <!-- Hero Section -->
     <header>
-        <h1>Flywheel-jack</h1>
-        <p>A Generative AI & Python Hybrid Solution</p>
-        <img src="images/flywheel-jack-logo.png" alt="Flywheel-jack Logo">
+        <div class="content">
+            <h1>Flywheel-jack</h1>
+            <p>Revolutionizing Business Automation with Generative AI & Python</p>
+            <button class="cta-button"><a href="#get-started" style="color: #121212;">Request a Demo</a></button>
+        </div>
     </header>
-    <main>
-        <!-- Flywheel Concept Section -->
-        <section>
-            <h2>Flywheel Concept in Data and Business Processes</h2>
-            <div class="flywheel-container">
-                <img src="images/flywheel-diagram.png" alt="Flywheel Diagram">
-                <div class="flywheel-description">
-                    <p>
-                        Think of high jacking the flywheel concept with Generative AI: each spoke of the flywheel represents a distinct persona, 
-                        while the spaces between the spokes denote various use cases. Generative AI's ability to seamlessly perform each task 
-                        synchronously and automatically in an expert capacity significantly multiplies productivity. This integration creates 
-                        a self-sustaining cycle where continuous improvement and automation drive exponential growth and efficiency.
-                    </p>
-                </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <img src="images/ai-generated-profile.jpg" alt="Salah Aldin Mokhayesh">
+        <h2>About Flywheel-jack</h2>
+        <p>
+            Flywheel-jack is a cutting-edge solution that synergizes Generative AI with Python to automate and optimize business processes. 
+            Designed for scalability and efficiency, Flywheel-jack empowers organizations to achieve unprecedented productivity through intelligent automation.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Key Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <i class="fas fa-robot"></i>
+                <h3>AI-Driven Automation</h3>
+                <p>Leverage advanced Generative AI to automate complex tasks with expert precision.</p>
             </div>
-            <p>
-                In the context of data and business processes, the "flywheel" concept refers to a business model or operational strategy 
-                that leverages continuous momentum to drive sustainable growth and improvement. It’s drawn from the mechanical concept 
-                of a flywheel, which is a rotating disk that stores energy. Once set into motion, a flywheel requires minimal effort 
-                to keep spinning, as it relies on its own inertia.
-            </p>
-            <p>
-                Here’s how this concept applies to data and business processes:
-            </p>
-            <h3>Flywheel in Business Processes</h3>
-            <p>
-                In business, the flywheel effect describes how well-optimized, integrated, and iterative processes lead to positive 
-                momentum, where small actions and improvements build on one another over time, creating a self-reinforcing cycle. 
-                This can be seen in:
-            </p>
-            <ul>
-                <li><strong>Customer acquisition</strong>: Businesses that efficiently manage customer data can continually improve marketing efforts, leading to more customers, which in turn provide more data to improve marketing and services.</li>
-                <li><strong>Operational efficiencies</strong>: When business processes are optimized using data and analytics, they improve over time, leading to cost savings and faster decision-making, which accelerates growth and enhances customer experience.</li>
-            </ul>
-            <h3>Flywheel in Data Management</h3>
-            <p>
-                In the realm of data management and analytics, a flywheel effect can be created by continually gathering, analyzing, 
-                and applying data to improve business processes. Data can be seen as a core component of the flywheel. Here’s how it works:
-            </p>
-            <ul>
-                <li><strong>Data Collection</strong>: The business collects high-quality data across operations, customer interactions, and market trends.</li>
-                <li><strong>Data Analysis</strong>: Using analytics, the data is processed, insights are generated, and informed decisions are made.</li>
-                <li><strong>Data Application</strong>: These insights drive actions and improvements in processes, products, and customer engagement.</li>
-                <li><strong>Data Feedback Loop</strong>: The results from these actions are then fed back into the system, providing more data for better decision-making, creating a continuous cycle of improvement.</li>
-            </ul>
-            <h3>Flywheel Model in Business Growth</h3>
-            <p>
-                The flywheel model for business growth, popularized by companies like Amazon and HubSpot, focuses on building processes that 
-                generate momentum with minimal external effort once they are set in motion. Key components include:
-            </p>
-            <ul>
-                <li><strong>Customer Experience</strong>: By continually improving customer service and delivering value, you enhance customer loyalty, which drives more referrals and repeat business.</li>
-                <li><strong>Data-Driven Decisions</strong>: A well-established data infrastructure helps businesses continuously refine their strategies based on insights gained from historical data, ensuring continuous growth and business evolution.</li>
-                <li><strong>Automation</strong>: Automating repetitive processes (like customer onboarding or data entry) ensures efficiency and consistency, helping maintain the flywheel effect without manual intervention.</li>
-            </ul>
-            <h3>Flywheel Example in Data-Driven Companies</h3>
-            <ul>
-                <li><strong>Amazon</strong>: Amazon uses data to continuously improve its recommendation engine, creating a self-reinforcing cycle where more data leads to better recommendations, which leads to more purchases, generating even more data.</li>
-                <li><strong>Netflix</strong>: Netflix's recommendation system is based on data from users’ interactions, which is then used to predict and suggest content that leads to higher user engagement, which in turn feeds more data to further refine suggestions.</li>
-            </ul>
-            <h3>Key Benefits of the Flywheel Concept</h3>
-            <ul>
-                <li><strong>Scalability</strong>: As the flywheel spins, it enables businesses to scale efficiently by optimizing processes and making informed decisions without requiring exponential additional effort.</li>
-                <li><strong>Sustainability</strong>: Flywheels drive sustainable business growth because they rely on data and insights to make incremental improvements, leading to long-term success rather than short-term bursts of activity.</li>
-            </ul>
-        </section>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <h3>Seamless Integration</h3>
+                <p>Integrate effortlessly with existing systems using Python-based workflows.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cogs"></i>
+                <h3>Customizable Solutions</h3>
+                <p>Tailor Flywheel-jack to meet the unique needs of your business operations.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Scalable Performance</h3>
+                <p>Ensure consistent performance and scalability as your business grows.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Overview Section -->
-        <section class="overview">
-            <h2>Overview</h2>
-            <p>Flywheel-jack is an innovative solution that combines the power of Generative AI and Python to automate everyday business tasks. 
-            This hybrid solution is designed to streamline workflows and operate at an expert level, enhancing productivity and reducing manual effort.</p>
-        </section>
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <i class="fas fa-user-plus"></i>
+                <h3>Input</h3>
+                <p>Provide task specifications and data sources to initiate the automation process.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-magic"></i>
+                <h3>Processing</h3>
+                <p>Generative AI analyzes the input and generates optimized workflows tailored to your needs.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-puzzle-piece"></i>
+                <h3>Execution</h3>
+                <p>Python scripts execute the workflows, seamlessly integrating with your existing systems.</p>
+            </div>
+            <div class="step">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Output</h3>
+                <p>Receive automated results delivered with expert-level precision and efficiency.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- Key Features Section -->
-        <section class="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li>Generative AI-driven decision-making and automation</li>
-                <li>Python-based integration for seamless workflow management</li>
-                <li>Customizable to suit a variety of business needs</li>
-                <li>Expert-level performance in automating complex tasks</li>
-            </ul>
-        </section>
+    <!-- Get Started Section -->
+    <section id="get-started" class="get-started">
+        <h2>Get Started with Flywheel-jack</h2>
+        <p>Transform your business operations with intelligent automation. Request a demo today and experience the future of productivity.</p>
+        <button class="cta-button"><a href="mailto:salahmokhayesh@gmail.com">Contact Us</a></button>
+    </section>
 
-        <!-- Use Case Section -->
-        <section class="use-case">
-            <h2>Use Case: Data Management</h2>
-            <p>Flywheel-jack excels in data management by automating tasks such as data classification, cleansing, and quality checks. 
-            With its Generative AI capabilities, it can provide predictive analytics and actionable insights, making it an invaluable tool for 
-            businesses handling large volumes of data.</p>
-        </section>
-
-        <!-- How It Works Section -->
-        <section class="how-it-works">
-            <h2>How It Works</h2>
-            <ol>
-                <li>Input: Users provide task specifications and data sources.</li>
-                <li>Processing: The Generative AI module analyzes and generates optimized workflows.</li>
-                <li>Execution: Python scripts execute the workflows, integrating with existing systems.</li>
-                <li>Output: Automated results are delivered with expert-level precision.</li>
-            </ol>
-        </section>
-
-        <!-- Get Started Section -->
-        <section class="get-started">
-            <h2>Get Started</h2>
-            <p>To learn more about Flywheel-jack or to request a demo, please <a href="mailto:salahmokhayesh@gmail.com">contact us</a>.</p>
-        </section>
-    </main>
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Salah Aldin Mokhayesh</p>
+        <p>&copy; 2025 Salah Aldin Mokhayesh. All rights reserved.</p>
     </footer>
 </body>
 </html>
